@@ -3,12 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
-	public function index()
-	{
-		# code...
-	}
+	
 
-	public function admin()
+	public function index()
 	{
 			// set validation rules
 		$this->form_validation->set_rules('username', 'Username', 'required|alpha_numeric');
@@ -23,7 +20,7 @@ class Login extends CI_Controller {
 			$res = $this->db->get('user');
 
 			if($res->num_rows() == 1){
-				$adminid=$res->result()[0]->id;
+				$adminid=$res->result()[0]->user_id;
 					$this->session->set_userdata('username', $username);
 					$this->session->set_userdata('usertype', 'admin');
 					$this->session->set_userdata('adminid', $adminid);

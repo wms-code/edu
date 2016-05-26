@@ -10,12 +10,12 @@ class Admin extends CI_Controller {
 		 parent::__construct();
         // TODO: check if admin, else redirect to login
         if(!isset($_SESSION['username'])){
-        	$url = base_url('login/admin');
+        	$url = base_url('login/');
         	header("Location: $url");
         	exit();
         }
         if ($_SESSION['usertype']!="admin") {
-        	$url = base_url('login/admin');
+        	$url = base_url('login/');
         	header("Location: $url");
         	exit();
         }
@@ -24,6 +24,6 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin/main');
+		$this->load->view('admin/home');
 	}
 }
